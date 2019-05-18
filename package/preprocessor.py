@@ -1,4 +1,4 @@
-class Presprocess():
+class Preprocessor():
     """ Pre processing class for receive data and return normalized data
     
     Attributes: fileName
@@ -8,4 +8,4 @@ class Presprocess():
         self.fileName = fileName
     
     def __rep__(self):
-        return "Nome do Arquivo
+        return "Nome do Arquivo em estudo: {}".format(self.fileName)
