@@ -1,6 +1,6 @@
-from preprocessor import Preprocessor
+from .preprocessor import Preprocessor
 
-class normalize(Preprocessor):
+class Normalize(Preprocessor):
    
     """ Normiliza class for receive data and return normalized data
     

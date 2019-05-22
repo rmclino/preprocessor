@@ -49,8 +49,8 @@ class Preprocessor:
         else:
             raise "No Data"
     
-    def get_stdev(self, digits=6, tipo='amostra'):
-        if tipo =='amostra':
+    def get_stdev(self, digits=6, tipo='sample'):
+        if tipo =='sample':
             d = 1
         else:
             d = 0
@@ -79,13 +79,3 @@ class Preprocessor:
         file.close()
            
         return print("Arquivo {} gravado com : {} dados".format(outPutFile,self.len))
-
-
-def main():
-    print("ditest")
-    p = Preprocessor('data.txt')
-    p.load_file()
-    p.mean
-
-if __name__ == 'main':
-    main()

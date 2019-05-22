@@ -1,4 +1,4 @@
-from preprocessor import Preprocessor
+from .preprocessor import Preprocessor
 
 class FillNa(Preprocessor):
     """

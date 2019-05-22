@@ -1,7 +1,6 @@
-from preprocessor import Preprocessor
-from fillna import FillNa
+from .preprocessor import Preprocessor
 
-class rescale(Preprocessor):
+class Rescale(Preprocessor):
    
     def rescale_MinMax(self):
         if len(self.data) > 1:
