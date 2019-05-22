@@ -1,7 +1,7 @@
 class Preprocessor:
    
-    def __init__(self):
-        self.fileName = None
+    def __init__(self, fileName):
+        self.fileName = fileName
 
         """ Pre processing class for receive data and return normalized data
     
@@ -10,9 +10,10 @@ class Preprocessor:
         """
     
     def __repr__(self):
+        print(self.data)
         return "Nome do Arquivo em estudo: {}".format(self.fileName)
 
-    def load_file(self,fileName, outPutFile="out_put",type='txt'):
+    def load_file(self,type='txt'):
         
         """Function to read in data from a txt file. The txt file should have
         one number (float) per line. The numbers are stored in the data attribute.
@@ -24,8 +25,7 @@ class Preprocessor:
             None
         
         """
-        self.fileName = fileName
-        with open(fileName) as file:
+        with open(self.fileName,'r') as file:
             data_list = []
             line = file.readline()
             while line:
@@ -61,13 +61,30 @@ class Preprocessor:
         self.stdev = round( self.variance **0.5 , 6)
         return self.stdev
         
-
+    def save_file(self, fileType='txt'):
+        
+        """Function to save in data from a txt file. The txt file should have
+        one number (float) per line. The numbers are stored in the data attribute.
+                
+        Args:
+            file(string): name of a file to read from
+        
+        Returns:
+            None
+        
+        """
+        outPutFile = self.fileName[:-4] + "_outPut." + fileType
+        with open(outPutFile,'w') as file:
+            file.writelines("%s\n" % l for l in self.data)
+        file.close()
+           
+        return print("Arquivo {} gravado com : {} dados".format(outPutFile,self.len))
 
 
 def main():
     print("ditest")
-    p = Preprocessor()
-    p.load_file('data.txt')
+    p = Preprocessor('data.txt')
+    p.load_file()
     p.mean
 
 if __name__ == 'main':
